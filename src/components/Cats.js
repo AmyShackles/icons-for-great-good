@@ -25,6 +25,11 @@ const Cats = props => {
             </label>
             <input className="btn bt-block mx-auto my-2 btn-dark" type="submit" value="Submit" /></form></div>
           </div>
+          <div className="row">
+              <div className="col-12">
+                  Icons created by {props.attribution}
+              </div>
+          </div>
         </section>
         </div>
     )

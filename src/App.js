@@ -59,9 +59,9 @@ class App extends React.Component {
         <Nav/>
         </div>}/>
         
-        <main id="main"className="container-fluid vh-100 py-5">
-            <Route exact path="/" render={() => <Cats image={this.state.image} handleChange={this.handleChange} handleSubmit={this.handleCat} input={this.state.input} />}/>
-            <Route path="/monster" render={() => <Monster monster={this.state.monster} handleChange={this.handleChange} handleSubmit={this.handleMonster} input={this.state.input}/>}/>
+        <main id="main"className="container-fluid vh-100 py-3">
+            <Route exact path="/" render={() => <Cats image={this.state.image} handleChange={this.handleChange} handleSubmit={this.handleCat} attribution="David Revoy" input={this.state.input} />}/>
+            <Route path="/monster" render={() => <Monster monster={this.state.monster} handleChange={this.handleChange} handleSubmit={this.handleMonster} attribution="Hrvoje Novakovic" input={this.state.input}/>}/>
         </main>
         <Footer />
         </Router>
