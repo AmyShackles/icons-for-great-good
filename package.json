@@ -3,13 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.18.0",
     "babel-loader": "^8.0.5",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
-    "react-scripts": "2.1.8",
-    "terminal-in-react": "^4.3.1",
-    "terminal-in-react-node-eval-plugin": "^2.0.0",
-    "terminal-in-react-pseudo-file-system-plugin": "^3.0.0"
+    "react-scripts": "2.1.8"
   },
   "scripts": {
     "start": "react-scripts start",
