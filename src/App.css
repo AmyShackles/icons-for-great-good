@@ -109,7 +109,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3e2c7', end
   display: flex;
 }
 #main {
-  height: calc(100vh - 95px);
+  height: calc(100vh - 90px);
 }
 @media screen and (max-width: 768px) {
   #cats #main-cat {
