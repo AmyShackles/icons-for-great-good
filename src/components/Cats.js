@@ -16,7 +16,7 @@ const Cats = props => {
             </div></div></section>
             <section id="get-kitten" className="d-flex flex-column justify-content-center">
                 <div className="row">
-            <h1 className="col-12 text-center">Welcome to Cat Icons for Great Good</h1></div>
+            <h1 className="col-12 text-center">Cat Icons for Great Good</h1></div>
             <div className="row">
                 <div id="form" className="py-2 col-12">
             <form className="d-flex flex-column"onSubmit={props.handleSubmit}>

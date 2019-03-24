@@ -9,12 +9,18 @@ const Nav = props => {
             <span className="navbar-toggler-icon"></span>
             </button>
         <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav">
-                <li class="nav-item">
+            <ul id="navbar" className="navbar-nav">
+                <li className="nav-item">
                     <Link to="/" className="nav-link">Cats</Link>
                     </li>
                 <li className="nav-item">
                     <Link to="/monster" className="nav-link">Monsters</Link>
+                </li>
+                <li className="nav-item">
+                    <Link to="/headless_robot" className="nav-link">Headless Robots</Link>
+                </li>
+                <li className="nav-item">
+                    <Link to="/robot" className="nav-link">Robots</Link>
                 </li>
                 </ul>
         </div>
