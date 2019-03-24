@@ -44,10 +44,8 @@ class App extends React.Component {
         <Header />
         <Nav />
         </div>
-        <main className="container-fluid">
-          <section id="icon">
+        <main id="main"className="container-fluid vh-100">
             <Cats image={this.state.image} handleChange={this.handleChange} handleCat={this.handleCat} input={this.state.input} />
-          </section>
 
         </main>
         <Footer />
