@@ -19,11 +19,11 @@ const Cats = props => {
             <h1 className="col-12 text-center">Welcome to Cat Icons for Great Good</h1></div>
             <div className="row">
                 <div id="form" className="py-2 col-12">
-            <form className="d-flex flex-column"onSubmit={props.handleCat}>
+            <form className="d-flex flex-column"onSubmit={props.handleSubmit}>
             <label className="text-center d-flex flex-column mx-auto">Enter text to get a new kitten!
-            <input className="border border-dark" type="text" placeholder="Enter text"value={props.input} onChange={props.handleChange}></input>
+            <input className="border border-dark my-2" type="text" placeholder="Enter text"value={props.input} onChange={props.handleChange}></input>
             </label>
-            <input className="btn bt-block mx-auto btn-dark" type="submit" value="Submit" /></form></div>
+            <input className="btn bt-block mx-auto my-2 btn-dark" type="submit" value="Submit" /></form></div>
           </div>
         </section>
         </div>

@@ -31,12 +31,23 @@ h4 {
   width: 100vw;
   height: 100vh;
 }
-
+#header {
+  height: 62px;
+  width: 75%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  background-color: black;
+}
+#nav {
+  justify-content: center;
+  background-color: black;
+  width: 25%;
+}
 .top-bar {
   display: flex;
   justify-content: space-between;
   color: #ffffff;
-  background-color: black;
   width: 100%;
 }
 .top-bar p, .top-bar a {
