@@ -76,6 +76,7 @@ h4 {
   color: white;
   width: 100%;
   position: static;
+  justify-content:center;
 }
 
 #footer p{
@@ -130,7 +131,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3e2c7', end
 #main {
   display: flex;
   justify-content: center;
-  min-height: calc(100vh - 110px);
+  min-height: calc(100vh - 120px);
   max-height: 100%;
 }
 #cat-image {
@@ -143,12 +144,23 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3e2c7', end
   justify-content: center;
 }
 @media screen and (max-width: 992px) {
-
+  #main {
+    min-height: calc(100vh - 110px);
+  }
   #header {
     height: 56px;
     top: 0;
   }
   .top-bar {
     height: 56px;
+  }
+
+}
+
+@media screen and (min-width: 550px) {
+  #footer {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
   }
 }
