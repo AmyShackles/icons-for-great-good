@@ -133,7 +133,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3e2c7', end
   min-height: calc(100vh - 110px);
   max-height: 100%;
 }
-
+#cat-image {
+  max-width: 150px;
+}
 #monsters, #cats, #headless-robots, #robots {
   display: flex;
   flex-direction: column;

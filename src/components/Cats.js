@@ -6,7 +6,7 @@ const Cats = props => {
         <section id="main-cat">
             <div className="row ">
                 <div className="col-12">
-            <img src={props.image} className="img-fluid" alt="default cat icon" />
+            <img src={props.image} id="cat-image" alt="default cat icon" />
             <div className="row mx-auto">
                 <div className="top col-12"></div>  
                 <div className="left col-1"></div>
