@@ -18,7 +18,7 @@ class Robot extends React.Component {
     render() {
         let imgSrc = this.props.robot ? this.props.robot : this.state.image;
     return (
-        <div id="robots" className="container-fluid h-100">
+        <div id="robots" className="container-fluid">
         <section id="main-robot">
             <div className="row ">
                 <div className="col-12">

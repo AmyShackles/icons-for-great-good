@@ -20,7 +20,7 @@ class Headless extends React.Component {
   render() {
     let imgSrc = this.props.headless ? this.props.headless : this.state.image;
     return (
-      <div id="headless-robots" className="container-fluid h-100">
+      <div id="headless-robots" className="container-fluid">
         <section id="main-headless-robot">
           <div className="row">
             <div className="col-12">

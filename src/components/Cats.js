@@ -2,7 +2,7 @@ import React from "react";
 
 const Cats = props => {
     return (
-        <div id="cats" className="container-fluid h-100">
+        <div id="cats" className="container-fluid">
         <section id="main-cat">
             <div className="row ">
                 <div className="col-12">

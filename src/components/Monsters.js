@@ -18,7 +18,7 @@ class Monster extends React.Component {
     render() {
         let imgSrc = this.props.monster ? this.props.monster : this.state.image;
     return (
-        <div id="monsters" className="container-fluid h-100">
+        <div id="monsters" className="container-fluid">
         <section id="main-monster">
             <div className="row ">
                 <div className="col-12">
