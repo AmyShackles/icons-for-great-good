@@ -35,7 +35,7 @@ const Human = ({ setPage, attribution }) => {
       >
         <div className="row">
           <h1 className="col-12 text-center">Human Icons for Great Good</h1>
-          <h2 className="col-12 text-center">Please be patient with this one, it takes more time to generate. :)</h2>
+          <p className="col-12 text-center note">Please be patient with this one, it takes more time to generate. :)</p>
         </div>
         <div className="row">
           <div id="form" className="py-2 col-12">
@@ -50,11 +50,9 @@ const Human = ({ setPage, attribution }) => {
                   onChange={(e) => setTextInput(e.target.value)}
                 ></input>
               </label>
-              <input
+              <button
                 className="btn bt-block mx-auto my-2 btn-dark"
-                type="submit"
-                value="Submit"
-              />
+              >Submit</button>
             </form>
           </div>
         </div>

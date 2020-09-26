@@ -141,6 +141,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3e2c7', end
   align-items: center;
   justify-content: center;
 }
+.btn {
+  width: 100px;
+  height: 50px;
+}
+.note {
+  font-size: 20px;
+}
 @media screen and (max-width: 992px) {
   #main {
     min-height: calc(100vh - 110px);

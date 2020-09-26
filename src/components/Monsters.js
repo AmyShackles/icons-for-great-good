@@ -51,11 +51,9 @@ const Monster = ({setPage, attribution}) => {
                   onChange={(e) => setTextInput(e.target.value)}
                 ></input>
               </label>
-              <input
+              <button
                 className="btn bt-block mx-auto my-2 btn-dark"
-                type="submit"
-                value="Submit"
-              />
+              >Submit</button>
             </form>
           </div>
         </div>
