@@ -42,15 +42,13 @@ h4 {
   z-index: 10;
 }
 #nav {
-  justify-content: center;
-  background-color: black;
-  width: 50%;
+  width: 60%;
   z-index: 10;
   position: fixed;
   right: 0;
 }
 #navbar {
-  margin: auto;
+ margin: auto;
 }
 .top-bar {
   height: 62px;
@@ -137,7 +135,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3e2c7', end
 #cat-image {
   max-width: 150px;
 }
-#monsters, #cats, #headless-robots, #robots {
+#monsters, #cats, #headless-robots, #robots, #humans {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -148,8 +146,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3e2c7', end
     min-height: calc(100vh - 110px);
   }
   #header {
-    height: 56px;
-    top: 0;
+    display: none;
+  }
+  #nav {
+    width: 100%;
   }
   .top-bar {
     height: 56px;

@@ -1,100 +1,35 @@
 import React from "react";
-import Header from "./components/Header.js";
-import Nav from "./components/Nav.js";
-import Footer from "./components/Footer.js";
-import Cats from "./components/Cats.js";
-import Monster from "./components/Monsters.js";
-import Headless from "./components/Headless.js";
-import Robot from "./components/Robot.js";
+import { Title } from "./components/Title.js";
+import { Nav } from "./components/Nav.js";
+import { Footer } from "./components/Footer.js";
+import { Cats } from "./components/Cats.js";
+import { Monster } from "./components/Monsters.js";
+import { DisembodiedRobotHead } from "./components/DisembodiedRobotHead.js";
+import { Robot } from "./components/Robot.js";
+import { Human } from './components/Human.js';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./App.css";
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {image: "", input: "", monster: "", headless: "", robot: ""};
-  }
-  handleChange = (event) => {
-    this.setState({
-      input: event.target.value
-    })
-  }
-  handleCat = (event) => {
-    event.preventDefault();
-    fetch(`https://robohash.org/${this.state.input}/?set=set4`)
-    .then(response => {
-      this.setState({
-        image: response.url
-      })
-    })
-    .catch(err => console.log(err.message));
-    this.setState({
-      input: ""
-    })
-  }
-  handleMonster = (event) => {
-    event.preventDefault();
-    fetch(`https://robohash.org/${this.state.input}/?set=set2`)
-    .then(response => {
-      this.setState({
-        monster: response.url
-      })
-    })
-    .catch(err => console.log(err.message));
-    this.setState({
-      input: ""
-    })
-  }
-  handleRobot = (event) => {
-    event.preventDefault();
-    fetch(`https://robohash.org/${this.state.input}/?set=set1`)
-    .then(response => {
-      this.setState({
-        robot: response.url
-      })
-    }).catch(err => console.log(err.message));
-    this.setState({
-      input: ""
-    })
-  }
-  handleHeadless = (event) => {
-    event.preventDefault();
-    fetch(`https://robohash.org/${this.state.input}/?set=set3`)
-    .then(response => {
-      this.setState({
-        headless: response.url
-      })
-    })
-    .catch(err => console.log(err.message));
-    this.setState({
-      input: ""
-    })
-  }
-  componentDidMount() {
-    fetch("https://robohash.org//?set=set4")
-    .then(response => {
-      this.setState({
-        image: response.url
-    });
-  }).catch(err => console.log(err.message));
-  }
-  render() {
+const App = () => {
+  const [currentPage, setCurrentPage] = React.useState();
     return (
-      <Router>
-        
-          <Route path="/" render={(props) => <div className="top-bar"><Header{...props} path="cat"/>
-        <Nav/>
-        </div>}/>
-        
+      <>
+        <Router>
+          <div className="top-bar">
+          <Title iconType={currentPage}/>
+          <Nav />
+          </div>
         <main id="main"className="container-fluid vh-100 py-3">
-            <Route exact path="/" render={() => <Cats image={this.state.image} handleChange={this.handleChange} handleSubmit={this.handleCat} attribution="David Revoy" input={this.state.input} />}/>
-            <Route path="/monster" render={() => <Monster monster={this.state.monster} handleChange={this.handleChange} handleSubmit={this.handleMonster} attribution="Hrvoje Novakovic" input={this.state.input}/>}/>
-            <Route path="/headless_robot" render={() => <Headless headless={this.state.headless} handleChange={this.handleChange} handleSubmit={this.handleHeadless} attribution="Julian Peter Arias" input={this.state.input}/>}/>
-            <Route path="/robot" render={() => <Robot robot={this.state.robot} handleChange={this.handleChange} handleSubmit={this.handleRobot} attribution="Zikri Kader" input={this.state.input}/>}/>
+
+            <Route exact path="/" render={() => <Cats setPage={() => setCurrentPage('Cat')} attribution="David Revoy"/>}/>
+            <Route path="/monster" render={() => <Monster setPage={() => setCurrentPage('Monster')} attribution="Hrvoje Novakovic"/>}/>
+            <Route path="/disembodied" render={() => <DisembodiedRobotHead setPage={() => setCurrentPage('Disembodied Robot Head')} attribution="Julian Peter Arias"/>}/>
+            <Route path="/robot" render={() => <Robot setPage={() => setCurrentPage('Robot')} attribution="Zikri Kader" />}/>
+            <Route path="/human" render={() => <Human setPage={() => setCurrentPage('Human')} attribution="Pablo Stanley"/>}/>
         </main>
         <Footer />
         </Router>
+        </>
     );
-  }
 }
-export default App;
+export { App }

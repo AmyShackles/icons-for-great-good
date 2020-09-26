@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom"
 
-const Nav = props => {
+const Nav = () => {
     return (
         
     <nav id="nav" className="navbar navbar-expand-lg bg-dark navbar-dark">
@@ -17,10 +17,13 @@ const Nav = props => {
                     <Link to="/monster" className="nav-link">Monsters</Link>
                 </li>
                 <li className="nav-item">
-                    <Link to="/headless_robot" className="nav-link">Headless Robots</Link>
+                    <Link to="/disembodied" className="nav-link">Disembodied Robot Heads</Link>
                 </li>
                 <li className="nav-item">
                     <Link to="/robot" className="nav-link">Robots</Link>
+                </li>
+                <li className="nav-item">
+                    <Link to="/human" className="nav-link">Humans</Link>
                 </li>
                 </ul>
         </div>
@@ -28,4 +31,4 @@ const Nav = props => {
     )
 }
 
-export default Nav;
+export { Nav }

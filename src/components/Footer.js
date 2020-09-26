@@ -1,6 +1,6 @@
 import React from "react";
 
-const Footer = props => {
+const Footer = () => {
     return (
         <div id="footer" className="bg-info">
             <a className="text-white" href="https://amyshackles.com"><p>Website by Amy Shackles</p></a>
@@ -9,4 +9,4 @@ const Footer = props => {
     )
 }
 
-export default Footer;
+export { Footer }
