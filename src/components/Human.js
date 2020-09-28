@@ -1,9 +1,11 @@
 import React from "react";
-import defaultHuman from '../defaultIcons/human.png';
+import defaultHuman from "../defaultIcons/human.png";
+import { Spinner } from './Spinner.js';
 
 const Human = ({ setPage, attribution }) => {
   const [human, setHuman] = React.useState(null);
   const [textInput, setTextInput] = React.useState("");
+  const [loading, setLoading] = React.useState(false);
 
   React.useEffect(() => {
     setPage();
@@ -12,12 +14,17 @@ const Human = ({ setPage, attribution }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     let escapedTextInput = encodeURIComponent(textInput);
+    setLoading(true);
     fetch(`https://robohash.org/${escapedTextInput}/?set=set5&size=200x200`)
       .then((response) => {
         setHuman(response.url);
+        setLoading(false);
         setTextInput("");
       })
-      .catch((err) => console.log(err.message));
+      .catch((err) => {
+        console.log(err.message);
+        setLoading(false);
+      });
   };
 
   return (
@@ -25,7 +32,17 @@ const Human = ({ setPage, attribution }) => {
       <section id="main-human">
         <div className="row ">
           <div className="col-12">
-            <img src={human ?? defaultHuman} className="img-fluid" alt="human icon" />
+            {loading ? (
+              <Spinner />
+            ) : (
+              <div className="circle">
+              <img
+                src={human ?? defaultHuman}
+                className="img-fluid"
+                alt="human icon"
+              />
+              </div>
+            )}
           </div>
         </div>
       </section>
@@ -35,7 +52,9 @@ const Human = ({ setPage, attribution }) => {
       >
         <div className="row">
           <h1 className="col-12 text-center">Human Icons for Great Good</h1>
-          <p className="col-12 text-center note">Please be patient with this one, it takes more time to generate. :)</p>
+          <p className="col-12 text-center note">
+            Please be patient with this one, it takes more time to generate. :)
+          </p>
         </div>
         <div className="row">
           <div id="form" className="py-2 col-12">
@@ -50,9 +69,9 @@ const Human = ({ setPage, attribution }) => {
                   onChange={(e) => setTextInput(e.target.value)}
                 ></input>
               </label>
-              <button
-                className="btn bt-block mx-auto my-2 btn-dark"
-              >Submit</button>
+              <button className="btn bt-block mx-auto my-2 btn-dark">
+                Submit
+              </button>
             </form>
           </div>
         </div>

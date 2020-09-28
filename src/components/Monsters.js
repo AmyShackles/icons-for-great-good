@@ -1,9 +1,12 @@
 import React from "react";
 import defaultMonster from '../defaultIcons/monster.png';
+import { Spinner } from './Spinner.js';
 
 const Monster = ({setPage, attribution}) => {
   const [monster, setMonster] = React.useState(null);
   const [textInput, setTextInput] = React.useState("");
+  const [loading, setLoading] = React.useState(false);
+
   React.useEffect(() => {
       setPage();
   }, [setPage])
@@ -11,12 +14,17 @@ const Monster = ({setPage, attribution}) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     let escapedTextInput = encodeURIComponent(textInput);
+    setLoading(true);
     fetch(`https://robohash.org/${escapedTextInput}/?set=set2&size=200x200`)
       .then((response) => {
         setMonster(response.url);
+        setLoading(false);
         setTextInput("");
       })
-      .catch((err) => console.log(err.message));
+      .catch((err) => {
+        console.log(err.message);
+        setLoading(false);
+      });
   };
 
   return (
@@ -24,7 +32,7 @@ const Monster = ({setPage, attribution}) => {
       <section id="main-monster">
         <div className="row ">
           <div className="col-12">
-            <img src={monster ?? defaultMonster} className="img-fluid" alt="monster icon" />
+            { loading ? <Spinner /> : (<div className="circle"><img src={monster ?? defaultMonster} className="img-fluid" alt="monster icon" /></div>)}
           </div>
         </div>
       </section>

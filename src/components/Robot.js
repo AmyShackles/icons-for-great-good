@@ -1,9 +1,12 @@
 import React from "react";
 import defaultRobot from "../defaultIcons/robot.png";
+import { Spinner } from './Spinner.js';
 
 const Robot = ({ setPage, attribution }) => {
   const [robot, setRobot] = React.useState(null);
   const [textInput, setTextInput] = React.useState("");
+  const [loading, setLoading] = React.useState(false);
+
   React.useEffect(() => {
     setPage();
   }, [setPage]);
@@ -11,12 +14,17 @@ const Robot = ({ setPage, attribution }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     let escapedTextInput = encodeURIComponent(textInput);
+    setLoading(true);
     fetch(`https://robohash.org/${escapedTextInput}/?set=set1&size=200x200`)
       .then((response) => {
         setRobot(response.url);
+        setLoading(false);
         setTextInput("");
       })
-      .catch((err) => console.log(err.message));
+      .catch((err) => {
+        console.log(err.message);
+        setLoading(false);
+      });
   };
 
   return (
@@ -24,11 +32,11 @@ const Robot = ({ setPage, attribution }) => {
       <section id="main-robot">
         <div className="row ">
           <div className="col-12">
-            <img
+            {loading ? <Spinner /> : (<div className="circle"><img
               src={robot ?? defaultRobot}
               className="img-fluid"
               alt="robot icon"
-            />
+            /></div>)}
           </div>
         </div>
       </section>

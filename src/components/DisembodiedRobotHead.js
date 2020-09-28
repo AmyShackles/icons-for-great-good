@@ -1,9 +1,11 @@
 import React from "react";
 import defaultDisembodiedHead from '../defaultIcons/disembodiedRobotHead.png'
+import { Spinner } from './Spinner.js';
 
 const DisembodiedRobotHead = ({setPage, attribution}) => {
   const [disembodiedHead, setDisembodiedHead] = React.useState(null);
   const [textInput, setTextInput] = React.useState("");
+  const [loading, setLoading] = React.useState(false);
 
   React.useEffect(() => {
     setPage();
@@ -12,12 +14,17 @@ const DisembodiedRobotHead = ({setPage, attribution}) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     let escapedTextInput = encodeURIComponent(textInput);
+    setLoading(true);
     fetch(`https://robohash.org/${escapedTextInput}/?set=set3&size=200x200`)
       .then((response) => {
         setDisembodiedHead(response.url);
+        setLoading(false);
         setTextInput("");
       })
-      .catch((err) => console.log(err.message));
+      .catch((err) => {
+        setLoading(false);
+        console.log(err.message)
+      });
   };
   
   return (
@@ -25,11 +32,16 @@ const DisembodiedRobotHead = ({setPage, attribution}) => {
       <section id="main-headless-robot">
         <div className="row">
           <div className="col-12">
-            <img
+            { loading ? <Spinner /> : (
+              <div className="circle">
+                            <img
               src={disembodiedHead ?? defaultDisembodiedHead}
               className="img-fluid"
               alt="monster icon"
             />
+            </div>
+            )}
+
           </div>
         </div>
       </section>

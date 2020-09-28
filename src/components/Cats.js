@@ -1,9 +1,11 @@
 import React from "react";
 import defaultCat from '../defaultIcons/cat.png';
+import { Spinner } from './Spinner.js';
 
 const Cats = ({attribution, setPage}) => {
   const [cat, setCat] = React.useState(null);
   const [textInput, setTextInput] = React.useState("");
+  const [loading, setLoading] = React.useState(false);
 
   React.useEffect(() => {
       setPage();
@@ -12,12 +14,17 @@ const Cats = ({attribution, setPage}) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     let escapedTextInput = encodeURIComponent(textInput);
+    setLoading(true);
     fetch(`https://robohash.org/${escapedTextInput}/?set=set4&size=200x200`)
       .then((response) => {
         setCat(response.url);
+        setLoading(false);
         setTextInput("");
       })
-      .catch((err) => console.log(err.message));
+      .catch((err) => {
+        console.log(err.message)
+        setLoading(false);
+      });
   };
   
   return (
@@ -25,7 +32,7 @@ const Cats = ({attribution, setPage}) => {
       <section id="main-cat">
         <div className="row ">
           <div className="col-12">
-            <img src={cat ?? defaultCat} id="cat-image" alt="default cat icon" />
+           { loading ? <Spinner /> : <img src={cat ?? defaultCat} id="cat-image" alt="default cat icon" />} 
             <div className="row mx-auto">
               <div className="top col-12"></div>
               <div className="left col-1"></div>
